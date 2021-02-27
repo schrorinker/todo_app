@@ -28,13 +28,13 @@ class GoalController extends Controller
     public function store(Request $request)
     {
         $goal = new Goal();
-        $goal -> title = request('title');
-        $goal -> user_id = Auth::id();
-        $goal -> save();
-        
+        $goal->title = request('title');
+        $goal->user_id = Auth::id();
+        $goal->save();
+
         $goals = Auth::user()->goals;
-        
-        return response()->json($goal);
+
+        return response()->json($goals);
     }
 
     /**
